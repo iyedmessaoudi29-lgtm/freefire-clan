@@ -48,6 +48,40 @@
             margin-bottom: 1rem;
         }
 
+        .toggle-box {
+            border: 1px solid rgba(233, 69, 96, 0.35);
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+
+        .toggle-box summary {
+            cursor: pointer;
+            color: #e94560;
+            font-weight: 700;
+            font-size: 1.05rem;
+            list-style: none;
+            padding: 0.2rem 0;
+        }
+
+        .toggle-box summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .toggle-content {
+            margin-top: 1rem;
+        }
+
+        .extra-list {
+            margin-top: 1rem;
+            padding-right: 1.2rem;
+            color: var(--secondary-text);
+        }
+
+        .extra-list li {
+            margin-bottom: 0.7rem;
+        }
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -251,7 +285,7 @@
         <div class="container">
             <div class="logo">Divine Ego</div>
             <ul class="nav-links">
-                <li><a href="divine-ego.html">العودة</a></li>
+                <li><a href="index.html">العودة</a></li>
                 <li><a href="#story">عن الفريق</a></li>
                 <li><a href="#journey">البطولات</a></li>
                 <li><a href="#vision">الطموحات</a></li>
@@ -261,127 +295,152 @@
 
     <!-- Back Button and Title -->
     <div class="explore-hero">
-        <a href="divine-ego.html" class="back-button">← العودة</a>
+        <a href="index.html" class="back-button">← العودة</a>
         <h1>Divine Ego - فريق Free Fire</h1>
         <p>تعرف على فريقنا الأسطوري في لعبة Free Fire</p>
     <main class="container">
         <!-- Story Section -->
         <section id="story" class="info-section">
-            <h2>� عن فريق Divine Ego في Free Fire</h2>
-            <p>Divine Ego هو فريق متخصص في لعبة Free Fire، يجمع أفضل اللاعبين الموهوبين والشجعان. نحن لا نلعب فقط لنفوز، بل نلعب لأننا نحب هذه اللعبة ونحترم بعضنا البعض.</p>
-            
-            <div class="image-placeholder">🎯</div>
-            
-            <p>في كل معركة، في كل مباراة، نحن نثبت أن الفريق القوي المتحد هو الذي يسود. كل عضو في Divine Ego يسهم بمهاراته وخبرته لخدمة الفريق.</p>
+            <details class="toggle-box" open>
+                <summary>عرض/إخفاء معلومات الفريق</summary>
+                <div class="toggle-content">
+                    <h2>🌟 عن فريق Divine Ego في Free Fire</h2>
+                    <p>Divine Ego هو فريق متخصص في لعبة Free Fire، يجمع أفضل اللاعبين الموهوبين والشجعان. نحن لا نلعب فقط لنفوز، بل نلعب لأننا نحب هذه اللعبة ونحترم بعضنا البعض.</p>
+                    
+                    <div class="image-placeholder">🎯</div>
+                    
+                    <p>في كل معركة، في كل مباراة، نحن نثبت أن الفريق القوي المتحد هو الذي يسود. كل عضو في Divine Ego يسهم بمهاراته وخبرته لخدمة الفريق.</p>
+                </div>
+            </details>
         </section>
 
         <!-- The Powers Section -->
         <section class="info-section">
-            <h2>🎯 مهارات الفريق في Free Fire</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>الرماية الدقيقة</h3>
-                    <p>كل عضو في الفريق يتمتع بدقة عالية في إطلاق النار والتسديد.</p>
+            <details class="toggle-box">
+                <summary>عرض/إخفاء مهارات الفريق</summary>
+                <div class="toggle-content">
+                    <h2>🎯 مهارات الفريق في Free Fire</h2>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>الرماية الدقيقة</h3>
+                            <p>كل عضو في الفريق يتمتع بدقة عالية في إطلاق النار والتسديد.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>التعاون والتنسيق</h3>
+                            <p>نحن نعمل كفريق واحد متحد، يساند بعضنا البعض في كل المعارك.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>استراتيجية اللعب</h3>
+                            <p>نستخدم خطط محكمة وذكية لتحقيق الانتصارات.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>سرعة البديهة</h3>
+                            <p>نتخذ القرارات السريعة الصحيحة وقت الضغط والأزمات.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>الشجاعة في المعارك</h3>
+                            <p>لا نخاف من المواجهات، بل نقابل التحديات بقوة وشجاعة.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>الاحترام المتبادل</h3>
+                            <p>نحترم بعضنا البعض ونعترف بمهارات كل عضو في الفريق.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <h3>التعاون والتنسيق</h3>
-                    <p>نحن نعمل كفريق واحد متحد، يساند بعضنا البعض في كل المعارك.</p>
-                </div>
-                <div class="info-card">
-                    <h3>استراتيجية اللعب</h3>
-                    <p>نستخدم خطط محكمة وذكية لتحقيق الانتصارات.</p>
-                </div>
-                <div class="info-card">
-                    <h3>سرعة البديهة</h3>
-                    <p>نتخذ القرارات السريعة الصحيحة وقت الضغط والأزمات.</p>
-                </div>
-                <div class="info-card">
-                    <h3>الشجاعة في المعارك</h3>
-                    <p>لا نخاف من المواجهات، بل نقابل التحديات بقوة وشجاعة.</p>
-                </div>
-                <div class="info-card">
-                    <h3>الاحترام المتبادل</h3>
-                    <p>نحترم بعضنا البعض ونعترف بمهارات كل عضو في الفريق.</p>
-                </div>
-            </div>
+            </details>
         </section>
 
         <!-- Journey Section -->
         <section id="journey" class="info-section">
-            <h2>🏆 رحلتنا في البطولات</h2>
-            <div class="image-placeholder">🏅</div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>البدايات المتواضعة</h4>
-                    <p>بدأنا كمجموعة صغيرة من اللاعبين المحبين للعبة Free Fire، يجتمعون للعب وتحسين مهاراتهم معاً.</p>
+            <details class="toggle-box">
+                <summary>عرض/إخفاء رحلتنا في البطولات</summary>
+                <div class="toggle-content">
+                    <h2>🏆 رحلتنا في البطولات</h2>
+                    <div class="image-placeholder">🏅</div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>البدايات المتواضعة</h4>
+                            <p>بدأنا كمجموعة صغيرة من اللاعبين المحبين للعبة Free Fire، يجتمعون للعب وتحسين مهاراتهم معاً.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>المشاركة الأولى</h4>
+                            <p>دخلنا أولى البطولات برغبة قوية وعزم لا يتزعزع لإثبات أنفسنا أمام الفرق الأخرى.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>الإنجازات والانتصارات</h4>
+                            <p>حققنا انتصارات مهمة وحصلنا على ترتيبات متقدمة في عدة بطولات، مما أثبت قوة فريقنا.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>اليوم - الفريق القوي</h4>
+                            <p>الآن Divine Ego معروف بقوته واحترافيته وروح الفريق الموحدة. كل عضو فخور بانتمائه للفريق.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h4>المشاركة الأولى</h4>
-                    <p>دخلنا أولى البطولات برغبة قوية وعزم لا يتزعزع لإثبات أنفسنا أمام الفرق الأخرى.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>الإنجازات والانتصارات</h4>
-                    <p>حققنا انتصارات مهمة وحصلنا على ترتيبات متقدمة في عدة بطولات، مما أثبت قوة فريقنا.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>اليوم - الفريق القوي</h4>
-                    <p>الآن Divine Ego معروف بقوته واحترافيته وروح الفريق الموحدة. كل عضو فخور بانتمائه للفريق.</p>
-                </div>
-            </div>
+            </details>
         </section>
 
         <!-- Leadership Section -->
         <section class="info-section">
-            <h2>👑 قائدنا طه - قلب الفريق</h2>
-            <div class="image-placeholder">⭐</div>
-            
-            <h3 style="color: #e94560; margin-top: 2rem;">طه - قائد Divine Ego</h3>
-            <p>طه هو قائد الفريق الذي اختاره الجميع بكل حب واحترام. بمهاراته الاستثنائية وقيادته الحكيمة، يوجه الفريق نحو النصر. ما يميز طه حقاً هو احترامه العميق لكل عضو في الفريق وتقديره لمساهماتهم.</p>
-            
-            <h3 style="color: #e94560; margin-top: 2rem;">روح الفريق:</h3>
-            <p>طه يعاملنا كإخوة وليس كمرؤوسين. يستمع لآرائنا ويقدر كل واحد منا بغض النظر عن مستوى مهاراته. هذا ما جعل Divine Ego أقوى من مجرد مجموعة لاعبين - أصبحنا عائلة حقيقية.</p>
-            
-            <div class="info-grid" style="margin-top: 2rem;">
-                <div class="info-card">
-                    <h3>📊 المهارة العالية</h3>
-                    <p>لاعب ماهر في Free Fire بقدرات قتالية استثنائية</p>
+            <details class="toggle-box">
+                <summary>عرض/إخفاء معلومات القائد</summary>
+                <div class="toggle-content">
+                    <h2>👑 قائدنا طه - قلب الفريق</h2>
+                    <div class="image-placeholder">⭐</div>
+                    
+                    <h3 style="color: #e94560; margin-top: 2rem;">طه - قائد Divine Ego</h3>
+                    <p>طه هو قائد الفريق الذي اختاره الجميع بكل حب واحترام. بمهاراته الاستثنائية وقيادته الحكيمة، يوجه الفريق نحو النصر. ما يميز طه حقاً هو احترامه العميق لكل عضو في الفريق وتقديره لمساهماتهم.</p>
+                    
+                    <h3 style="color: #e94560; margin-top: 2rem;">روح الفريق:</h3>
+                    <p>طه يعاملنا كإخوة وليس كمرؤوسين. يستمع لآرائنا ويقدر كل واحد منا بغض النظر عن مستوى مهاراته. هذا ما جعل Divine Ego أقوى من مجرد مجموعة لاعبين - أصبحنا عائلة حقيقية.</p>
+                    
+                    <div class="info-grid" style="margin-top: 2rem;">
+                        <div class="info-card">
+                            <h3>📊 المهارة العالية</h3>
+                            <p>لاعب ماهر في Free Fire بقدرات قتالية استثنائية</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>🎯 التنظيم والتخطيط</h3>
+                            <p>يضع استراتيجيات فعالة لكل معركة وبطولة</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>❤️ احترام الأعضاء</h3>
+                            <p>يحترم كل عضو ويقدر جهوده ومساهماته بصدق</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <h3>🎯 التنظيم والتخطيط</h3>
-                    <p>يضع استراتيجيات فعالة لكل معركة وبطولة</p>
-                </div>
-                <div class="info-card">
-                    <h3>❤️ احترام الأعضاء</h3>
-                    <p>يحترم كل عضو ويقدر جهوده ومساهماته بصدق</p>
-                </div>
-            </div>
+            </details>
         </section>
 
         <!-- Vision Section -->
         <section id="vision" class="info-section">
-            <h2>� حلمنا في Free Fire</h2>
-            <div class="image-placeholder">🌟</div>
-            
-            <p style="margin-top: 2rem;">نحن نطمح لأن نكون الفريق الأول المعروف في Free Fire، ليس فقط بقوتنا بل بروح الفريق والاحترام المتبادل الذي يجمعنا.</p>
-            
-            <div class="info-grid" style="margin-top: 2rem;">
-                <div class="info-card">
-                    <h3>🏆 البطولات الكبرى</h3>
-                    <p>نسعى للفوز في البطولات المهمة والظهور على الساحة العالمية</p>
-                </div>
-                <div class="info-card">
-                    <h3>🤝 بناء مجتمع</h3>
-                    <p>بناء مجتمع من اللاعبين الموهوبين الذين يحترمون بعضهم البعض</p>
-                </div>
-                <div class="info-card">
-                    <h3>💪 الاستمرار والتطور</h3>
-                    <p>الاستمرار في تطوير مهاراتنا والتعلم من كل بطولة</p>
-                </div>
-            </div>
+            <details class="toggle-box">
+                <summary>عرض/إخفاء حلمنا وطموحاتنا</summary>
+                <div class="toggle-content">
+                    <h2>🌈 حلمنا في Free Fire</h2>
+                    <div class="image-placeholder">🌟</div>
+                    
+                    <p style="margin-top: 2rem;">نحن نطمح لأن نكون الفريق الأول المعروف في Free Fire، ليس فقط بقوتنا بل بروح الفريق والاحترام المتبادل الذي يجمعنا.</p>
+                    
+                    <div class="info-grid" style="margin-top: 2rem;">
+                        <div class="info-card">
+                            <h3>🏆 البطولات الكبرى</h3>
+                            <p>نسعى للفوز في البطولات المهمة والظهور على الساحة العالمية</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>🤝 بناء مجتمع</h3>
+                            <p>بناء مجتمع من اللاعبين الموهوبين الذين يحترمون بعضهم البعض</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>💪 الاستمرار والتطور</h3>
+                            <p>الاستمرار في تطوير مهاراتنا والتعلم من كل بطولة</p>
+                        </div>
+                    </div>
 
-            <h3 style="color: #e94560; margin-top: 3rem; text-align: center;">الاحترام المتبادل: قيمتنا الأساسية</h3>
-            <p style="text-align: center; margin-top: 1rem;">في Divine Ego، نؤمن أن الاحترام بين أعضاء الفريق هو أساس قوتنا. كل عضو يقدر مهارات الآخرين ويعتمد عليهم بثقة. هذا الاحترام يعكس في كل معركة وكل بطولة، حيث نقف معاً كقوة واحدة لا تُقهر.</p>
+                    <h3 style="color: #e94560; margin-top: 3rem; text-align: center;">الاحترام المتبادل: قيمتنا الأساسية</h3>
+                    <p style="text-align: center; margin-top: 1rem;">في Divine Ego، نؤمن أن الاحترام بين أعضاء الفريق هو أساس قوتنا. كل عضو يقدر مهارات الآخرين ويعتمد عليهم بثقة. هذا الاحترام يعكس في كل معركة وكل بطولة، حيث نقف معاً كقوة واحدة لا تُقهر.</p>
+                </div>
+            </details>
         </section>
 
         <!-- Call to Action -->
@@ -389,9 +448,24 @@
             <h2>هل تريد الانضمام إلى Divine Ego؟</h2>
             <p style="margin: 1rem 0;">إذا كنت لاعب ماهر وتحترم فريقك وتبحث عن مجتمع حقيقي في Free Fire، نرحب بك.</p>
             <p style="margin: 1rem 0; color: #b0b0b0;">Divine Ego ليس مجرد كلان، بل عائلة يجمعها الاحترام والقوة والطموح المشترك.</p>
-            <a href="divine-ego.html#contact" class="cta-button">تواصل معنا</a>
+            <a href="index.html#contact" class="cta-button">تواصل معنا</a>
         </section>
     </main>
+
+    <section class="info-section">
+        <details class="toggle-box">
+            <summary>عرض/إخفاء الأشياء الإضافية</summary>
+            <div class="toggle-content">
+                <h2>📁 محتوى إضافي</h2>
+                <p>هنا يمكن وضع أي معلومات أو ملاحظات أو روابط غير أساسية بدون تشويه شكل الصفحة.</p>
+                <ul class="extra-list">
+                    <li>ملاحظات سريعة عن الفريق</li>
+                    <li>أفكار جديدة محتملة للصفحة</li>
+                    <li>روابط أو صور مستقبلية</li>
+                </ul>
+            </div>
+        </details>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
