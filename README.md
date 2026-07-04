@@ -1,0 +1,2 @@
+# freefire-clan
+divine ego
