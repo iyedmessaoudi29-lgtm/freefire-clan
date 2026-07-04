@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Ego</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --accent-color: #16213e;
+            --highlight-color: #e94560;
+            --text-color: #ffffff;
+            --secondary-text: #b0b0b0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--accent-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(233, 69, 96, 0.2);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--highlight-color), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background-color: var(--highlight-color);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #ff6b6b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Power Section */
+        .power-section {
+            padding: 5rem 0;
+            background-color: var(--primary-color);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .power-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .power-card {
+            background-color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .power-card:hover {
+            border-color: var(--highlight-color);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.2);
+        }
+
+        .power-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .power-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--highlight-color);
+        }
+
+        .power-card p {
+            color: var(--secondary-text);
+            line-height: 1.8;
+        }
+
+        /* Leader Section */
+        .leader-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+        }
+
+        .leader-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .leader-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .placeholder-image {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--highlight-color), #ff6b6b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            font-weight: bold;
+            box-shadow: 0 20px 60px rgba(233, 69, 96, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 20px 60px rgba(233, 69, 96, 0.3); }
+            50% { box-shadow: 0 20px 60px rgba(233, 69, 96, 0.6); }
+        }
+
+        .leader-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+        }
+
+        .leader-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .leader-description {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+        }
+
+        .leader-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .stat {
+            background-color: var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--highlight-color);
+        }
+
+        .stat h4 {
+            font-size: 1.8rem;
+            color: var(--highlight-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat p {
+            color: var(--secondary-text);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background-color: var(--primary-color);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            background-color: var(--accent-color);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--secondary-text);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--highlight-color);
+        }
+
+        .submit-button {
+            background-color: var(--highlight-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .submit-button:hover {
+            background-color: #ff6b6b;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--accent-color);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 2px solid var(--highlight-color);
+        }
+
+        .footer p {
+            color: var(--secondary-text);
+            margin: 0.5rem 0;
+        }
+
+        .footer p:first-child {
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .power-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leader-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .placeholder-image {
+                width: 250px;
+                height: 250px;
+                font-size: 5rem;
+            }
+
+            .leader-info h2 {
+                font-size: 2rem;
+            }
+
+            .leader-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button,
+            .submit-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .power-card {
+                padding: 1.5rem;
+            }
+
+            .power-icon {
+                font-size: 2.5rem;
+            }
+
+            .hero::before {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Divine Ego</div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#power">القوة</a></li>
+                <li><a href="#leader">القائد</a></li>
+                <li><a href="#contact">تواصل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="title">Divine Ego</h1>
+            <p class="subtitle">القوة والهيمنة العظمى</p>
+            <a href="explore.html" class="cta-button">اكتشف أكثر</a>
+        </div>
+    </section>
+
+    <!-- Power Description Section -->
+    <section id="power" class="power-section">
+        <div class="container">
+            <h2 class="section-title">صفات القوة</h2>
+            <div class="power-grid">
+                <div class="power-card">
+                    <div class="power-icon">⚡</div>
+                    <h3>السرعة</h3>
+                    <p>سرعة عالية في الحركة والتنفيذ</p>
+                </div>
+                <div class="power-card">
+                    <div class="power-icon">🛡️</div>
+                    <h3>الحماية</h3>
+                    <p>دفاع قوي ضد التهديدات</p>
+                </div>
+                <div class="power-card">
+                    <div class="power-icon">🔥</div>
+                    <h3>القوة</h3>
+                    <p>قوة عظيمة في المعارك والتحديات</p>
+                </div>
+                <div class="power-card">
+                    <div class="power-icon">🧠</div>
+                    <h3>الذكاء</h3>
+                    <p>ذكاء عالي في اتخاذ القرارات</p>
+                </div>
+                <div class="power-card">
+                    <div class="power-icon">👁️</div>
+                    <h3>الرؤية</h3>
+                    <p>قدرة على فهم الأمور بعمق</p>
+                </div>
+                <div class="power-card">
+                    <div class="power-icon">💎</div>
+                    <h3>التميز</h3>
+                    <p>مستوى عالي من الكمال والتفوق</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leader Section -->
+    <section id="leader" class="leader-section">
+        <div class="container">
+            <div class="leader-content">
+                <div class="leader-image">
+                    <div class="placeholder-image">T</div>
+                </div>
+                <div class="leader-info">
+                    <h2>القائد طه</h2>
+                    <p class="leader-subtitle">قائد Divine Ego</p>
+                    <p class="leader-description">
+                        طه هو قائد قوي وذكي يقود الفريق بثقة. بمهاراته العالية وخبرته، يوجه الفريق نحو النجاح والإنجازات.
+                    </p>
+                    <div class="leader-stats">
+                        <div class="stat">
+                            <h4>100%</h4>
+                            <p>القوة</p>
+                        </div>
+                        <div class="stat">
+                            <h4>100%</h4>
+                            <p>الحكمة</p>
+                        </div>
+                        <div class="stat">
+                            <h4>100%</h4>
+                            <p>القيادة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="الاسم" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <textarea placeholder="رسالتك" rows="5" required></textarea>
+                <button type="submit" class="submit-button">إرسال</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Divine Ego - جميع الحقوق محفوظة</p>
+            <p>بقيادة طه العظيم</p>
+        </div>
+    </footer>
+</body>
+</html>
