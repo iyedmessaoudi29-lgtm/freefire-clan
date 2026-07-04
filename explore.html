@@ -229,6 +229,42 @@
             font-weight: 600;
         }
 
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(22, 33, 62, 0.96);
+            border: 1px solid rgba(233, 69, 96, 0.35);
+            border-radius: 999px;
+            padding: 0.6rem 1rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .music-player button {
+            border: none;
+            background: var(--highlight-color);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.3s ease;
+        }
+
+        .music-player button:hover {
+            background: #ff6b6b;
+        }
+
+        .music-player .music-label {
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -476,6 +512,45 @@
         </div>
     </footer>
 
-    <audio id="siteAudio" autoplay loop preload="auto" src="A.L.A - Double Face (Official Music Video).mp3"></audio>
+    <div class="music-player" id="musicPlayer">
+        <button id="musicToggle" type="button">تشغيل الموسيقى</button>
+        <span class="music-label" id="musicLabel">الموسيقى متوقفة</span>
+    </div>
+
+    <audio id="siteAudio" loop preload="auto" src="A.L.A - Double Face (Official Music Video).mp3"></audio>
+
+    <script>
+        const audio = document.getElementById('siteAudio');
+        const toggleButton = document.getElementById('musicToggle');
+        const label = document.getElementById('musicLabel');
+
+        const updateUi = (playing) => {
+            if (playing) {
+                toggleButton.textContent = 'إيقاف الموسيقى';
+                label.textContent = 'الموسيقى تعمل الآن';
+            } else {
+                toggleButton.textContent = 'تشغيل الموسيقى';
+                label.textContent = 'الموسيقى متوقفة';
+            }
+        };
+
+        toggleButton.addEventListener('click', async () => {
+            try {
+                if (audio.paused) {
+                    await audio.play();
+                    updateUi(true);
+                } else {
+                    audio.pause();
+                    updateUi(false);
+                }
+            } catch (error) {
+                label.textContent = 'لم يتم التشغيل، قد يمنع المتصفح الصوت التلقائي';
+            }
+        });
+
+        window.addEventListener('load', () => {
+            updateUi(false);
+        });
+    </script>
 </body>
 </html>
