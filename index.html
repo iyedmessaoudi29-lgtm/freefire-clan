@@ -327,6 +327,38 @@
             font-weight: 600;
         }
 
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: rgba(22, 33, 62, 0.95);
+            border: 1px solid rgba(233, 69, 96, 0.35);
+            border-radius: 999px;
+            padding: 0.6rem 0.9rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .music-toggle {
+            border: none;
+            background: var(--highlight-color);
+            color: white;
+            padding: 0.6rem 0.9rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .music-status {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .title {
@@ -524,5 +556,56 @@
             <p>بقيادة طه العظيم</p>
         </div>
     </footer>
+
+    <div class="music-player" id="musicPlayer">
+        <button class="music-toggle" id="musicToggle" type="button">🎵 تشغيل</button>
+        <span class="music-status" id="musicStatus">جارٍ التحضير...</span>
+    </div>
+
+    <audio id="siteAudio" preload="auto" loop>
+        <source src="A.L.A - Double Face (Official Music Video).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('siteAudio');
+            const toggle = document.getElementById('musicToggle');
+            const status = document.getElementById('musicStatus');
+            let isPlaying = false;
+
+            const updateUi = (text, playing) => {
+                status.textContent = text;
+                toggle.textContent = playing ? '⏸ إيقاف' : '🎵 تشغيل';
+            };
+
+            const startPlayback = async () => {
+                try {
+                    audio.volume = 0.35;
+                    audio.muted = true;
+                    await audio.play();
+                    audio.muted = false;
+                    isPlaying = true;
+                    updateUi('الموسيقى تعمل الآن', true);
+                } catch (error) {
+                    isPlaying = false;
+                    updateUi('اضغط للتشغيل', false);
+                }
+            };
+
+            toggle.addEventListener('click', async () => {
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                    updateUi('تم الإيقاف', false);
+                } else {
+                    await startPlayback();
+                }
+            });
+
+            setTimeout(() => {
+                startPlayback();
+            }, 800);
+        });
+    </script>
 </body>
 </html>
