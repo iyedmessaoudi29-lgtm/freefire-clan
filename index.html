@@ -208,80 +208,29 @@
             background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
         }
 
-        .leader-content {
+        .leader-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
 
-        .leader-image {
-            display: flex;
-            justify-content: center;
-        }
-
-        .placeholder-image {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, var(--highlight-color), #ff6b6b);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            font-weight: bold;
-            box-shadow: 0 20px 60px rgba(233, 69, 96, 0.3);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 20px 60px rgba(233, 69, 96, 0.3); }
-            50% { box-shadow: 0 20px 60px rgba(233, 69, 96, 0.6); }
-        }
-
-        .leader-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--highlight-color);
-            text-transform: uppercase;
-        }
-
-        .leader-subtitle {
-            font-size: 1.2rem;
-            color: var(--secondary-text);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .leader-description {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--secondary-text);
-            margin-bottom: 2rem;
-        }
-
-        .leader-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .stat {
+        .leader-card {
             background-color: var(--primary-color);
             padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border-left: 4px solid var(--highlight-color);
+            border-radius: 12px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .stat h4 {
-            font-size: 1.8rem;
+        .leader-card h3 {
+            font-size: 1.4rem;
             color: var(--highlight-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
         }
 
-        .stat p {
+        .leader-card p {
             color: var(--secondary-text);
+            line-height: 1.7;
         }
 
         /* Contact Section */
@@ -290,9 +239,30 @@
             background-color: var(--primary-color);
         }
 
-        .contact-form {
+        .contact-reveal {
             max-width: 600px;
             margin: 0 auto;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .contact-reveal summary {
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--highlight-color);
+            list-style: none;
+            padding: 0.5rem 0;
+        }
+
+        .contact-reveal summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .contact-form {
+            margin-top: 1rem;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
@@ -509,30 +479,23 @@
     <!-- Leader Section -->
     <section id="leader" class="leader-section">
         <div class="container">
-            <div class="leader-content">
-                <div class="leader-image">
-                    <div class="placeholder-image">T</div>
+            <h2 class="section-title">قائمة القادة</h2>
+            <div class="leader-grid">
+                <div class="leader-card">
+                    <h3>ادم</h3>
+                    <p>قائد نشط وملتزم ويحب تنظيم الأمور بشكل جيد.</p>
                 </div>
-                <div class="leader-info">
-                    <h2>القائد طه</h2>
-                    <p class="leader-subtitle">قائد Divine Ego</p>
-                    <p class="leader-description">
-                        طه هو قائد قوي وذكي يقود الفريق بثقة. بمهاراته العالية وخبرته، يوجه الفريق نحو النجاح والإنجازات.
-                    </p>
-                    <div class="leader-stats">
-                        <div class="stat">
-                            <h4>100%</h4>
-                            <p>القوة</p>
-                        </div>
-                        <div class="stat">
-                            <h4>100%</h4>
-                            <p>الحكمة</p>
-                        </div>
-                        <div class="stat">
-                            <h4>100%</h4>
-                            <p>القيادة</p>
-                        </div>
-                    </div>
+                <div class="leader-card">
+                    <h3>مؤمن</h3>
+                    <p>شخص عملي وهادئ ويعمل بجد من أجل الفريق.</p>
+                </div>
+                <div class="leader-card">
+                    <h3>اياد</h3>
+                    <p>ذكي وسريع في التفكير ويضيف أفكاراً جيدة.</p>
+                </div>
+                <div class="leader-card">
+                    <h3>امين</h3>
+                    <p>ثابت ومخلص ويهتم بالتفاصيل في كل شيء.</p>
                 </div>
             </div>
         </div>
@@ -542,12 +505,15 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">تواصل معنا</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="الاسم" required>
-                <input type="email" placeholder="البريد الإلكتروني" required>
-                <textarea placeholder="رسالتك" rows="5" required></textarea>
-                <button type="submit" class="submit-button">إرسال</button>
-            </form>
+            <details class="contact-reveal">
+                <summary>اضغط هنا لعرض نموذج التواصل</summary>
+                <form class="contact-form">
+                    <input type="text" placeholder="الاسم" required>
+                    <input type="email" placeholder="البريد الإلكتروني" required>
+                    <textarea placeholder="رسالتك" rows="5" required></textarea>
+                    <button type="submit" class="submit-button">إرسال</button>
+                </form>
+            </details>
         </div>
     </section>
 
